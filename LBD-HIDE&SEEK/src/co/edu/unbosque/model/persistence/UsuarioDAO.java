@@ -6,7 +6,7 @@ import java.util.List;
 public class UsuarioDAO {
 	
 	
-	private ArrayList <AdministradorDTO> administradores; 
+	private ArrayList <SupermercadoDTO> administradores; 
 	private ArrayList <ClienteDTO> clientes; 
 	private BaseDeDatosFile base;
 
@@ -63,7 +63,7 @@ public class UsuarioDAO {
 		}
 		
 		if(b==true) {
-		AdministradorDTO cliente = new AdministradorDTO(usuario,almacen,correo,contraseña);
+		SupermercadoDTO cliente = new SupermercadoDTO(usuario,almacen,correo,contraseña,2);
 		
 		administradores.add(cliente);
 		a="se creo el administrador exitosamente";
@@ -136,12 +136,12 @@ public String listarAdmin() {
 	}
 
 
-	public ArrayList<AdministradorDTO> getAdministradores() {
+	public ArrayList<SupermercadoDTO> getAdministradores() {
 		return administradores;
 	}
 
 
-	public void setAdministradores(ArrayList<AdministradorDTO> administradores) {
+	public void setAdministradores(ArrayList<SupermercadoDTO> administradores) {
 		this.administradores = administradores;
 	}
 

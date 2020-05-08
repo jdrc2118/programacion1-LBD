@@ -2,21 +2,23 @@ package co.edu.unbosque.model.persistence;
 
 import java.io.Serializable;
 
-public class AdministradorDTO implements Serializable {
+public class SupermercadoDTO implements Serializable {
 
 	
 	private String usuario;
 	private String almacen;
 	private String correo;
 	private String contraseña;
+	private int sucursales;
 	
 	
-	public AdministradorDTO(String usuario,String almacen,String correo,String contraseña) {
+	public SupermercadoDTO(String usuario,String almacen,String correo,String contraseña,int sucursales ) {
 		
 		this.usuario=usuario;
 		this.almacen=almacen;
 		this.correo=correo;
 		this.contraseña=contraseña;
+		this.sucursales =sucursales ;
 		
 		
 	}

@@ -17,7 +17,7 @@ public class Controller implements ActionListener {
 	
 	
 	
-	
+	// creamos las variables de los paquetes model y view 
 	public View v;
 	public Usuario m;
 
@@ -27,6 +27,7 @@ public class Controller implements ActionListener {
 	
 	public Controller() {
 		
+		//inicializamos las variables 
 		v= new View();
 		m= new Usuario();
 		

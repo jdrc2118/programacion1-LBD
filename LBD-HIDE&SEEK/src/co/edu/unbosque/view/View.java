@@ -26,7 +26,7 @@ public class View extends JFrame{
 		
 		
 		public void mostrarMensaje(String mensaje){
-			JOptionPane.showMessageDialog(null, mensaje);
+			JOptionPane.showMessageDialog(null, mensaje + "algo");
 			
 			
 		}

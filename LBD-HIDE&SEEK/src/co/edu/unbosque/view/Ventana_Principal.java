@@ -8,7 +8,7 @@ import javax.swing.*;
 public class Ventana_Principal extends JFrame{
 
 	public JLabel img;
-	public JButton sup;
+	public JButton tie;
 	public JButton cli;
 	public ImageIcon imagen;
 	public Icon ico;
@@ -32,10 +32,10 @@ public class Ventana_Principal extends JFrame{
 		ImagenR();
 		add(img);
 
-		sup = new JButton("Supervisor");
-		sup.setBounds(15, 408, 200, 50);
-		sup.setFocusable(false);
-		add(sup);
+		tie = new JButton("Tienda");
+		tie.setBounds(15, 408, 200, 50);
+		tie.setFocusable(false);
+		add(tie);
 
 		cli = new JButton("Cliente");
 		cli.setBounds(235, 408, 200, 50);

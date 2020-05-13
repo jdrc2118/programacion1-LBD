@@ -1,6 +1,7 @@
 package co.edu.unbosque.model.persistence;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class ClienteDTO implements Serializable{
 	
@@ -9,6 +10,7 @@ public class ClienteDTO implements Serializable{
 	private String correo;
 	private String contraseña;
 	private int parejas;
+	private ArrayList <ParejasDTO> lista;
 	
 	
 	
@@ -17,6 +19,7 @@ public class ClienteDTO implements Serializable{
 		this.correo = correo;
 		this.contraseña = contraseña;
 		this.parejas = parejas;
+		lista= new ArrayList<>();
 			
 	}
 
@@ -66,6 +69,18 @@ public class ClienteDTO implements Serializable{
 
 	public void setParejas(int parejas) {
 		this.parejas = parejas;
+	}
+
+	
+
+	public ArrayList<ParejasDTO> getLista() {
+		return lista;
+	}
+
+
+
+	public void setLista(ArrayList<ParejasDTO> lista) {
+		this.lista = lista;
 	}
 
 

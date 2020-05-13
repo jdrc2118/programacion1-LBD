@@ -48,6 +48,30 @@ public class UsuarioDAO {
 		
 		
 	}
+	public boolean busquedaPareja() {
+		for(int i= 0;i<clientes.size();i++) {
+		for(int j =0;j<clientes.get(i).getParejas();j++) {
+			
+		}
+		}
+		
+		
+		return false;
+		
+	}
+	
+	
+	
+//	public String agregarPareja() {
+//		
+//		
+//		
+//		
+//		
+//		return null;
+//		
+//	}
+	
 	
 	public String agregarSupermercado(String usuario,String almacen,String correo, String contraseña,int sucursales) {
 		String a ="";

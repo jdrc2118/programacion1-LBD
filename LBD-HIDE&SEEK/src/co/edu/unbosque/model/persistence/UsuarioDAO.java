@@ -6,7 +6,7 @@ import java.util.List;
 public class UsuarioDAO {
 	
 	
-	private ArrayList <AdministradorDTO> administradores; 
+	private ArrayList <SupermercadoDTO> supermercados; 
 	private ArrayList <ClienteDTO> clientes; 
 	private BaseDeDatosFile base;
 
@@ -14,7 +14,7 @@ public class UsuarioDAO {
 	
 	public UsuarioDAO() {
 		
-	administradores=new ArrayList<>();
+	supermercados=new ArrayList<>();
 	clientes=new ArrayList<>();
 	base=new BaseDeDatosFile();
 		
@@ -41,7 +41,7 @@ public class UsuarioDAO {
 		
 		clientes.add(cliente);
 		a="se creo el cliente exitosamente";
-		//base.escribirRegistro(clientes);
+		base.escribirUsuario(clientes);
 		}
 		
 		return a;
@@ -49,12 +49,12 @@ public class UsuarioDAO {
 		
 	}
 	
-	public String agregarAdministrador(String usuario,String almacen,String correo, String contraseña) {
+	public String agregarSupermercado(String usuario,String almacen,String correo, String contraseña,int sucursales) {
 		String a ="";
 		boolean b = true;
-		for(int i = 0;i<administradores.size();i++) {
+		for(int i = 0;i<supermercados.size();i++) {
 			
-			if(administradores.get(i).getUsuario().equals(usuario)||administradores.get(i).getCorreo().equals(correo)) {
+			if(supermercados.get(i).getUsuario().equals(usuario)||supermercados.get(i).getAlmacen().equals(almacen)) {
 				b=false;
 				a="el administrador ya existe";
 				
@@ -63,11 +63,11 @@ public class UsuarioDAO {
 		}
 		
 		if(b==true) {
-		AdministradorDTO cliente = new AdministradorDTO(usuario,almacen,correo,contraseña);
+		SupermercadoDTO supermercado = new SupermercadoDTO(usuario,almacen,correo,contraseña,sucursales);
 		
-		administradores.add(cliente);
+		supermercados.add(supermercado);
 		a="se creo el administrador exitosamente";
-		//base.escribirRegistro(clientes);
+		base.escribirSupermercado(supermercados);
 		}
 		return a;
 		
@@ -84,7 +84,7 @@ public class UsuarioDAO {
 				a="se borro correctamente";
 			}
 		}
-		//base.escribirRegistro(clientes);
+		base.escribirUsuario(clientes);
 		
 		
 		return a;
@@ -101,7 +101,7 @@ public class UsuarioDAO {
 				a="se borro correctamente";
 			}
 		}
-		//base.escribirRegistro(clientes);
+		base.escribirUsuario(clientes);
 		
 		
 		return a;
@@ -110,9 +110,10 @@ public class UsuarioDAO {
 	public String listarClientes() {
 		
 		String a="";
-//		base.leerRegistro();
-		for(int i = 0; i < clientes.size(); i++) {
-			a+=clientes.get(i)+"\n";
+		base.leerUsuario();
+		for(int i = 0; i <base.getDatos().size() ; i++) {
+			a+=base.getDatos().get(i).getUsuario()+"\n"+base.getDatos().get(i).getContraseña()+"\n"+base.getDatos().get(i).getCorreo()+"\n"+base.getDatos().get(i).getParejas()+"\n";
+			
 		}
 		
 		
@@ -121,12 +122,12 @@ public class UsuarioDAO {
 		
 	}
 	
-public String listarAdmin() {
+public String listarSupermercado() {
 		
 		String a="";
-//		base.leerRegistro();
-		for(int i = 0; i < administradores.size(); i++) {
-			a+=administradores.get(i)+"\n";
+		base.leerSupermercado();
+		for(int i = 0; i < base.getDatos1().size(); i++) {
+			a+=base.getDatos1().get(i).getUsuario()+"\n"+base.getDatos1().get(i).getAlmacen()+"\n"+base.getDatos1().get(i).getCorreo()+"\n"+base.getDatos1().get(i).getContraseña()+"\n"+base.getDatos1().get(i).getSucursales()+"\n";
 		}
 		
 		
@@ -136,14 +137,17 @@ public String listarAdmin() {
 	}
 
 
-	public ArrayList<AdministradorDTO> getAdministradores() {
-		return administradores;
-	}
 
 
-	public void setAdministradores(ArrayList<AdministradorDTO> administradores) {
-		this.administradores = administradores;
-	}
+
+	public ArrayList<SupermercadoDTO> getSupermercados() {
+	return supermercados;
+}
+
+
+public void setSupermercados(ArrayList<SupermercadoDTO> supermercados) {
+	this.supermercados = supermercados;
+}
 
 
 	public ArrayList<ClienteDTO> getClientes() {

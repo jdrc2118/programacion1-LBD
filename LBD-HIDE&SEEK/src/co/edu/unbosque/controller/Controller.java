@@ -1,12 +1,9 @@
 package co.edu.unbosque.controller;
-
+//jm
 
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JOptionPane;
-
 import co.edu.unbosque.model.Usuario;
 import co.edu.unbosque.view.Ventana_AdminCli;
 import co.edu.unbosque.view.Ventana_AdminTie;
@@ -74,17 +71,17 @@ public class Controller implements ActionListener {
 			vntRegCli.setVisible(true);
 		}
 		if(e.getSource().equals(vntCl.info)) {
-			
+
 		}
 		if(e.getSource().equals(vntCl.admin)) {
 			vntCl.setVisible(false);
-//			vntAdmCli.setVisible(true);
+			//			vntAdmCli.setVisible(true);
 		}
 		if(e.getSource().equals(vntTie.reg)) {
 			vntTie.setVisible(false);
 			vntRegSup.setVisible(true);
 		}
-		
+
 
 	}
 

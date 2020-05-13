@@ -7,14 +7,25 @@ public class ParejasDTO implements Serializable{
 	private String nombre ;
 	private double credito;
 	private String horario;
+	private String cedula;
 	
 	
-	public ParejasDTO(String nombre,double credito,String horario) {
+	public ParejasDTO(String nombre,double credito,String horario, String cedula) {
 		this.nombre=nombre;
 		this.credito=credito;
 		this.horario=horario;
+		this.cedula= cedula;
 		
-		
+	}
+
+
+	public String getCedula() {
+		return cedula;
+	}
+
+
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
 	}
 
 

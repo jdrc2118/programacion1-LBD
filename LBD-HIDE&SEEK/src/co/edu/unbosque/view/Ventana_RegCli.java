@@ -17,7 +17,7 @@ public class Ventana_RegCli extends JFrame{
 	public JTextField nomT;
 	public JTextField userT;
 	public JTextField emailT;
-	public JTextField claveT;
+	public JPasswordField claveT;
 	public JTextField pareT;
 	
 	public JButton reg;
@@ -63,7 +63,7 @@ public class Ventana_RegCli extends JFrame{
 		clave.setBounds(25, 130, 100, 20);
 		add(clave);
 		
-		claveT = new JTextField();
+		claveT = new JPasswordField();
 		claveT.setBounds(180, 130, 250, 20);
 		add(claveT);
 		

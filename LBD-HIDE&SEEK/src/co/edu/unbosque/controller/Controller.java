@@ -33,13 +33,13 @@ public class Controller implements ActionListener {
 		
 		m.getU().agregarcliente("juan","sdda@","456",4);
 		v.mostrarMensaje(m.getU().agregarcliente(v.entrarDatoString("nombre de usuario: "), v.entrarDatoString("correo: "), v.entrarDatoString("contraseña: "), v.entrarDatoInt("numero de parejas: ")));
-		v.mostrarMensaje(m.getU().agregarAdministrador(v.entrarDatoString("nombre de usuario: "), v.entrarDatoString("almacen: "), v.entrarDatoString("correo: "), v.entrarDatoString("contraseña: ")));
+		v.mostrarMensaje(m.getU().agregarSupermercado(v.entrarDatoString("nombre de usuario: "), v.entrarDatoString("almacen: "), v.entrarDatoString("correo: "), v.entrarDatoString("contraseña: "),v.entrarDatoInt("sucursales: ")));
 		
 		
 		
-		v.mostrarMensaje(m.getU().borrarCliente(v.entrarDatoString("usuario al que quiere borrar: ")));
+//		v.mostrarMensaje(m.getU().borrarCliente(v.entrarDatoString("usuario al que quiere borrar: ")));
 		v.mostrarMensaje(m.getU().listarClientes());
-		v.mostrarMensaje(m.getU().listarAdmin());
+		v.mostrarMensaje(m.getU().listarSupermercado());
 
 		
 		

@@ -9,13 +9,15 @@ import java.util.ArrayList;
 
 public class BaseDeDatosFile {
 	
-	private String rutaReg = ".//registro.out";
+	private String rutaReg = ".//Usuarios.txt";
+	private String rutaReg1 = ".//Administradores.txt";
 	private ArrayList<ClienteDTO> datos;
+	private ArrayList<SupermercadoDTO> datos1;
 	private  ObjectInputStream in;
 	
 	
 	
-	public void escribirRegistro(ArrayList<ClienteDTO> lista) {
+	public void escribirUsuario(ArrayList<ClienteDTO> lista) {
 		String mensaje="";
 		ArrayList<ClienteDTO> staff = lista;
 		
@@ -32,7 +34,7 @@ public class BaseDeDatosFile {
 		
 	}
 	
-	public ArrayList<ClienteDTO> leerRegistro() {
+	public ArrayList<ClienteDTO> leerUsuario() {
        
 		try {
 			in = new ObjectInputStream(new FileInputStream(rutaReg));
@@ -48,6 +50,54 @@ public class BaseDeDatosFile {
 			e.printStackTrace();
 		}
 		return datos;
+	}
+	
+	
+	public void escribirSupermercado(ArrayList<SupermercadoDTO> lista) {
+		String mensaje="";
+		ArrayList<SupermercadoDTO> staff = lista;
+		
+
+		try {
+			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(rutaReg1));
+			out.writeObject(staff);
+			out.close();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+			mensaje = "Error de IO";
+		}	
+		
+	}
+	
+	public ArrayList<SupermercadoDTO> leerSupermercado() {
+       
+		try {
+			in = new ObjectInputStream(new FileInputStream(rutaReg1));
+	        datos1 = (ArrayList<SupermercadoDTO>)in.readObject();
+	        in.close();
+	        for (int i = 0; i < datos.size(); i++) {
+//	       
+	            
+	        }
+
+		} catch (IOException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return datos1;
+	}
+	
+	
+	
+	
+
+	public ArrayList<SupermercadoDTO> getDatos1() {
+		return datos1;
+	}
+
+	public void setDatos1(ArrayList<SupermercadoDTO> datos1) {
+		this.datos1 = datos1;
 	}
 
 	public ArrayList<ClienteDTO> getDatos() {

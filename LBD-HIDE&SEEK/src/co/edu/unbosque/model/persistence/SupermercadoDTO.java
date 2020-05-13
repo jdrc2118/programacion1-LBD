@@ -64,6 +64,16 @@ public class SupermercadoDTO implements Serializable {
 	}
 
 
+	public int getSucursales() {
+		return sucursales;
+	}
+
+
+	public void setSucursales(int sucursales) {
+		this.sucursales = sucursales;
+	}
+
+
 	@Override
 	public String toString() {
 		return "AdministradorDTO [usuario=" + usuario + ", almacen=" + almacen + ", correo=" + correo + ", contraseña="

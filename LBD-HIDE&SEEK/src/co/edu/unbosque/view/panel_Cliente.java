@@ -20,7 +20,7 @@ public class panel_Cliente extends JPanel {
 	}
 	public void inicializarComponentes() {
 		
-		reg = new JButton("Registrar");
+		reg = new JButton("Registrarte");
 		reg.setBounds(130, 70, 200, 50);
 		reg.setFocusable(false);
 		add(reg);

@@ -136,7 +136,7 @@ public class UsuarioDAO {
 					+ base.getDatos().get(i).getParejas() + "\n";
 
 		}
-
+			System.out.println(a);
 		return a;
 
 	}
@@ -152,7 +152,7 @@ public class UsuarioDAO {
 					+ base.getDatos1().get(i).getContraseña() + "\n"
 					+ base.getDatos1().get(i).getSucursales() + "\n";
 		}
-
+		System.out.println(a);
 		return a;
 
 	}

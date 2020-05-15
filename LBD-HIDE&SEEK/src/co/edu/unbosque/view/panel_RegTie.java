@@ -73,9 +73,9 @@ public class panel_RegTie extends JPanel{
 		pareT.setBounds(175, 240, 240, 20);
 		add(pareT);
 		
-		reg = new JButton("Registrar");
+		reg = new JButton("Registrar supervisor");
 		reg.setFocusable(false);
-		reg.setBounds(175, 370, 100, 30);
+		reg.setBounds(140, 370, 170, 30);
 		add(reg);
 	}
 	public JLabel getNom() {

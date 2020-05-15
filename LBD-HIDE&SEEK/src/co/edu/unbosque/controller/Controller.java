@@ -74,8 +74,8 @@ public class Controller implements ActionListener {
 			vntRegCli.setVisible(true);
 		}
 		if(e.getSource().equals(vntCl.info)) {
-			String cedcl = JOptionPane.showInputDialog(null, "Ingresa tú cédula: ");
-			String pass = JOptionPane.showInputDialog(null, "Ingresa tú contraseña: ");
+//			String cedcl = JOptionPane.showInputDialog(null, "Ingresa tú cédula: ");
+//			String pass = JOptionPane.showInputDialog(null, "Ingresa tú contraseña: ");
 		}
 		if(e.getSource().equals(vntCl.admin)) {
 			vntCl.setVisible(false);

@@ -8,6 +8,7 @@ public class Ventana_RegCli extends JFrame{
 	public JLabel nom;
 	public JLabel user;
 	public JLabel email;
+	public JLabel ced;
 	public JLabel clave;
 	public JLabel parejas;
 	public JLabel genero;
@@ -15,6 +16,7 @@ public class Ventana_RegCli extends JFrame{
 	public JComboBox<String> sex;
 	public String [] sexo = {"Seleccionar...","Masculino","Femenino"};
 	public JTextField nomT;
+	public JTextField cedT;
 	public JTextField userT;
 	public JTextField emailT;
 	public JPasswordField claveT;
@@ -50,6 +52,14 @@ public class Ventana_RegCli extends JFrame{
 		userT = new JTextField();
 		userT.setBounds(180, 60, 250, 20);
 		add(userT);
+		
+		ced = new JLabel("Cédula: ");
+		ced.setBounds(25, 95, 100, 20);
+		add(ced);
+		
+		cedT = new JTextField();
+		cedT.setBounds(180, 95, 250, 20);
+		add(cedT);
 		
 		email = new JLabel("E-mail: ");
 		email.setBounds(25, 95, 100, 20);

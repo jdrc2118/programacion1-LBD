@@ -26,6 +26,8 @@ public class Controller implements ActionListener {
 	public Ventana_AdminCli vntAdmCli;
 	public Ventana_AdminTie vntAdmSup;
 
+	
+	
 	public Controller() {
 		//Inicializamos las variables 
 		m= new Usuario();

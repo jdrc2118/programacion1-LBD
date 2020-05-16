@@ -7,6 +7,7 @@ public class panel_Cliente extends JPanel {
 	private JButton reg;
 	private JButton info;
 	private JButton admin;
+	private JButton regP;
 	private JButton volver;
 	
 	public panel_Cliente() {
@@ -20,7 +21,7 @@ public class panel_Cliente extends JPanel {
 	}
 	public void inicializarComponentes() {
 		
-		reg = new JButton("Registrarte");
+		reg = new JButton("Registrar Usuario");
 		reg.setBounds(130, 70, 200, 50);
 		reg.setFocusable(false);
 		add(reg);
@@ -34,6 +35,11 @@ public class panel_Cliente extends JPanel {
 		admin.setBounds(130, 210, 200, 50);
 		admin.setFocusable(false);
 		add(admin);
+		
+		regP = new JButton("Registrar Pareja");
+		regP.setBounds(130, 70, 200, 50);
+		regP.setFocusable(false);
+		add(regP);
 		
 		volver = new JButton("Volver");
 		volver.setBounds(130, 280, 200, 50);
@@ -63,6 +69,12 @@ public class panel_Cliente extends JPanel {
 	}
 	public void setVolver(JButton volver) {
 		this.volver = volver;
+	}
+	public JButton getRegP() {
+		return regP;
+	}
+	public void setRegP(JButton regP) {
+		this.regP = regP;
 	}
 	
 	

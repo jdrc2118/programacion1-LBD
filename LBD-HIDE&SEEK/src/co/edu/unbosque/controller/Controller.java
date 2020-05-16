@@ -55,7 +55,7 @@ public class Controller implements ActionListener {
 			v.getPanel_1().setVisible(true);			
 			v.getPanel_c().setVisible(false);
 			v.getPanel_t().setVisible(false);
-		}else if (e.getActionCommand().equals("Registrarte")){
+		}else if (e.getActionCommand().equals("Registrar Usuario")){
 			
 			v.getPanel_c().setVisible(false);
 			v.getPanel_rc().setVisible(true);

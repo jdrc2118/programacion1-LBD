@@ -33,9 +33,10 @@ public class UsuarioDAO {
 
 		if (b == true) {
 
-			ClienteDTO cliente = new ClienteDTO(nombre,usuario,cedula, correo, contraseña,sexo, parejas);
-
+			ClienteDTO cliente = new ClienteDTO(nombre,usuario,cedula, correo, contraseña,sexo, parejas);			
 			clientes.add(cliente);
+			
+			
 			a = "se creo el cliente exitosamente";
 			base.escribirUsuario(clientes);
 		}

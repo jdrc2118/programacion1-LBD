@@ -28,7 +28,7 @@ public class Controller implements ActionListener {
 		v.getPanel_t().getSuperv().addActionListener(this);
 		v.getPanel_rg().getReg().addActionListener(this);
 		v.getPanel_rc().getReg().addActionListener(this);
-
+		v.getPanel_c().getRegP().addActionListener(this);
 }
 
 

@@ -9,6 +9,7 @@ public class View extends JFrame{
 	private panel_Tienda panel_t;
 	private panel_RegTie panel_rg;
 	private panel_RegCli panel_rc;
+	private panel_RegPar panel_rp;
 	private panel_AdminCli panel_ac;
 	private panel_AdminTie panel_at;
 	
@@ -21,7 +22,7 @@ public class View extends JFrame{
 		
 		inicializarComponentes();
 
-		setResizable(true);
+		setResizable(false);
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
@@ -47,6 +48,10 @@ public class View extends JFrame{
 		panel_rc = new panel_RegCli();
 		panel_rc.setBounds(0, 0, 420,450);
 		add(panel_rc);
+
+		panel_rp = new panel_RegPar();
+		panel_rp.setBounds(0, 0, 420,450);
+		add(panel_rp);
 		
 		panel_ac = new panel_AdminCli();
 		panel_ac.setBounds(0, 0, 420,450);

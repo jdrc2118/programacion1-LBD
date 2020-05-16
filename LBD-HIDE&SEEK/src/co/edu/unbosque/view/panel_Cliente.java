@@ -22,27 +22,27 @@ public class panel_Cliente extends JPanel {
 	public void inicializarComponentes() {
 		
 		reg = new JButton("Registrar Usuario");
-		reg.setBounds(130, 70, 200, 50);
+		reg.setBounds(130, 50, 200, 50);
 		reg.setFocusable(false);
 		add(reg);
 		
+		regP = new JButton("Registrar Pareja");
+		regP.setBounds(130, 120, 200, 50);
+		regP.setFocusable(false);
+		add(regP);
+		
 		info = new JButton("Info. de usuario");
-		info.setBounds(130, 140, 200, 50);
+		info.setBounds(130, 190, 200, 50);
 		info.setFocusable(false);
 		add(info);
 		
 		admin = new JButton("Administración de usuario");
-		admin.setBounds(130, 210, 200, 50);
+		admin.setBounds(130, 260, 200, 50);
 		admin.setFocusable(false);
 		add(admin);
 		
-		regP = new JButton("Registrar Pareja");
-		regP.setBounds(130, 70, 200, 50);
-		regP.setFocusable(false);
-		add(regP);
-		
 		volver = new JButton("Volver");
-		volver.setBounds(130, 280, 200, 50);
+		volver.setBounds(130, 330, 200, 50);
 		volver.setFocusable(false);
 		add(volver);
 	}

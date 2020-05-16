@@ -13,6 +13,7 @@ public class panel_RegCli extends JPanel{
 	private JLabel clave;
 	private JLabel parejas;
 	private JLabel genero;
+	private JLabel credito;
 	
 	private JComboBox<String> sex;
 	private String [] sexo = {"Seleccionar...","Masculino","Femenino"};
@@ -22,12 +23,13 @@ public class panel_RegCli extends JPanel{
 	private JTextField emailT;
 	private JPasswordField claveT;
 	private JTextField pareT;
+	private JTextField creditoT;
 	
 	private JButton reg;
 	
 	public panel_RegCli() {
 
-		setVisible(false);
+		setVisible(true);
 		setLayout(null);
 		inicializarComponentes();
 		
@@ -91,9 +93,18 @@ public class panel_RegCli extends JPanel{
 		sex.setBounds(175, 340, 240, 20);
 		add(sex);
 		
+		credito = new JLabel("Credito: ");
+		credito.setBounds(40, 390, 150, 20);
+		add(credito);
+		
+		creditoT = new JTextField();
+		creditoT.setFocusable(false);
+		creditoT.setBounds(175, 390, 240, 20);
+		add(creditoT);
+		
 		reg = new JButton("Registrar");
 		reg.setFocusable(false);
-		reg.setBounds(175, 390, 100, 30);
+		reg.setBounds(175, 420, 100, 20);
 		add(reg);
 	}
 	

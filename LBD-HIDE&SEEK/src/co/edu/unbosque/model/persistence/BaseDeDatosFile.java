@@ -40,10 +40,7 @@ public class BaseDeDatosFile {
 			in = new ObjectInputStream(new FileInputStream(rutaReg));
 	        datos = (ArrayList<ClienteDTO>)in.readObject();
 	        in.close();
-	        for (int i = 0; i < datos.size(); i++) {
-//	       
-	            
-	        }
+	        
 
 		} catch (IOException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -76,11 +73,7 @@ public class BaseDeDatosFile {
 			in = new ObjectInputStream(new FileInputStream(rutaReg1));
 	        datos1 = (ArrayList<SupermercadoDTO>)in.readObject();
 	        in.close();
-	        for (int i = 0; i < datos.size(); i++) {
-//	       
-	            
-	        }
-
+	       
 		} catch (IOException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

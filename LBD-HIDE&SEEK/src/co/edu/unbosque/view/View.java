@@ -57,4 +57,61 @@ public class View extends JFrame{
 		add(panel_at);
 	}
 
+	public panel_Principal getPanel_1() {
+		return panel_1;
+	}
+
+	public void setPanel_1(panel_Principal panel_1) {
+		this.panel_1 = panel_1;
+	}
+
+	public panel_Cliente getPanel_c() {
+		return panel_c;
+	}
+
+	public void setPanel_c(panel_Cliente panel_c) {
+		this.panel_c = panel_c;
+	}
+
+	public panel_Tienda getPanel_t() {
+		return panel_t;
+	}
+
+	public void setPanel_t(panel_Tienda panel_t) {
+		this.panel_t = panel_t;
+	}
+
+	public panel_RegTie getPanel_rg() {
+		return panel_rg;
+	}
+
+	public void setPanel_rg(panel_RegTie panel_rg) {
+		this.panel_rg = panel_rg;
+	}
+
+	public panel_RegCli getPanel_rc() {
+		return panel_rc;
+	}
+
+	public void setPanel_rc(panel_RegCli panel_rc) {
+		this.panel_rc = panel_rc;
+	}
+
+	public panel_AdminCli getPanel_ac() {
+		return panel_ac;
+	}
+
+	public void setPanel_ac(panel_AdminCli panel_ac) {
+		this.panel_ac = panel_ac;
+	}
+
+	public panel_AdminTie getPanel_at() {
+		return panel_at;
+	}
+
+	public void setPanel_at(panel_AdminTie panel_at) {
+		this.panel_at = panel_at;
+	}
+	
+
 }

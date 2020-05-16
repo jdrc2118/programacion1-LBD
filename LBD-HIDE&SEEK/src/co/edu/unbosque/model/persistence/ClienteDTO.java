@@ -5,20 +5,26 @@ import java.util.ArrayList;
 
 public class ClienteDTO implements Serializable{
 	
-	
+	private String nombre;
 	private String usuario;
+	private String cedula;
 	private String correo;
 	private String contraseña;
 	private int parejas;
+	private String sexo;
 	private ArrayList <ParejasDTO> lista;
 	
 	
 	
-	public ClienteDTO(String usuario,String correo, String contraseña, int parejas) {
+	public ClienteDTO(String nombre,String usuario,String cedula,String correo, String contraseña,String sexo, int parejas) {
+		this.nombre=nombre;
 		this.usuario = usuario;
+		this.cedula = cedula;
 		this.correo = correo;
 		this.contraseña = contraseña;
 		this.parejas = parejas;
+		this.sexo=sexo;
+		
 		lista= new ArrayList<>();
 			
 	}
@@ -81,6 +87,42 @@ public class ClienteDTO implements Serializable{
 
 	public void setLista(ArrayList<ParejasDTO> lista) {
 		this.lista = lista;
+	}
+
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+
+	public String getCedula() {
+		return cedula;
+	}
+
+
+
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
+	}
+
+
+
+	public String getSexo() {
+		return sexo;
+	}
+
+
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
 	}
 
 

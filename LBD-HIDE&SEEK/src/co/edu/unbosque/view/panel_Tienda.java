@@ -21,7 +21,7 @@ public class panel_Tienda extends JPanel{
 	}
 	public void inicializarComponentes() {
 
-		superv = new JButton("Registrar supervisor");
+		superv = new JButton("Registrar Supervisor");
 		superv.setBounds(130, 50, 200, 50);
 		superv.setFocusable(false);
 		add(superv);

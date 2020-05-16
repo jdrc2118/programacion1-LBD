@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class ClienteDTO implements Serializable{
 	
 	private String nombre;
+	private String credito;
 	private String usuario;
 	private String cedula;
 	private String correo;
@@ -16,8 +17,9 @@ public class ClienteDTO implements Serializable{
 	
 	
 	
-	public ClienteDTO(String nombre,String usuario,String cedula,String correo, String contraseña,String sexo, int parejas) {
+	public ClienteDTO(String nombre,String credito,String usuario,String cedula,String correo, String contraseña,String sexo, int parejas) {
 		this.nombre=nombre;
+		this.credito=credito;
 		this.usuario = usuario;
 		this.cedula = cedula;
 		this.correo = correo;
@@ -123,6 +125,18 @@ public class ClienteDTO implements Serializable{
 
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
+	}
+
+
+
+	public String getCredito() {
+		return credito;
+	}
+
+
+
+	public void setCredito(String credito) {
+		this.credito = credito;
 	}
 
 

@@ -1,6 +1,7 @@
 package co.edu.unbosque.view;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class View extends JFrame{
 	
@@ -61,6 +62,18 @@ public class View extends JFrame{
 		panel_at.setBounds(0, 0, 420,450);
 		add(panel_at);
 	}
+	
+	public void mostrarMensaje(String mensaje){
+		JOptionPane.showMessageDialog(null, mensaje);
+		
+		
+	}
+	public String entrarDatoString() {
+		
+		return panel_rp.getCed_uT().getText();
+		
+	}
+	
 
 	public panel_Principal getPanel_1() {
 		return panel_1;
@@ -117,6 +130,15 @@ public class View extends JFrame{
 	public void setPanel_at(panel_AdminTie panel_at) {
 		this.panel_at = panel_at;
 	}
+
+	public panel_RegPar getPanel_rp() {
+		return panel_rp;
+	}
+
+	public void setPanel_rp(panel_RegPar panel_rp) {
+		this.panel_rp = panel_rp;
+	}
+	
 	
 
 }

@@ -29,7 +29,7 @@ public class panel_RegCli extends JPanel{
 	
 	public panel_RegCli() {
 
-		setVisible(true);
+		setVisible(false);
 		setLayout(null);
 		inicializarComponentes();
 		

@@ -17,7 +17,7 @@ public class panel_Principal extends JPanel{
 
 		inicializarComponentes();
 		setLayout(null);
-		setVisible(false);
+		setVisible(true);
 		
 	}
 

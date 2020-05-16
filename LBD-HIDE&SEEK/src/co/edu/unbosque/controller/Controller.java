@@ -29,6 +29,9 @@ public class Controller implements ActionListener {
 		v.getPanel_rg().getReg().addActionListener(this);
 		v.getPanel_rc().getReg().addActionListener(this);
 		v.getPanel_c().getRegP().addActionListener(this);
+		v.getPanel_c().getRegP().addActionListener(this);
+		v.getPanel_rp().getComprobar().addActionListener(this);
+		v.getPanel_rp().getReg().addActionListener(this);
 }
 
 
@@ -61,7 +64,7 @@ public class Controller implements ActionListener {
 			v.getPanel_rc().setVisible(true);
 		}else if (e.getActionCommand().equals("Registrar")) {
 		
-			//genero-nombre-cedula
+			
 			String aux=v.getPanel_rc().getPareT().getText();			
 			int a = Integer.parseInt(aux);
 			String sexo="";
@@ -71,7 +74,7 @@ public class Controller implements ActionListener {
 			}else {
 				sexo="Femenino";
 			}
-			System.out.println(m.getU().agregarcliente(v.getPanel_rc().getNomT().getText(),v.getPanel_rc().getUserT().getText(),v.getPanel_rc().getCedT().getText(), v.getPanel_rc().getEmailT().getText(), v.getPanel_rc().getClaveT().getText(),sexo,a ));
+			System.out.println(m.getU().agregarcliente(v.getPanel_rc().getNomT().getText(),v.getPanel_rc().getCreditoT().getText(),v.getPanel_rc().getUserT().getText(),v.getPanel_rc().getCedT().getText(), v.getPanel_rc().getEmailT().getText(), v.getPanel_rc().getClaveT().getText(),sexo,a ));
 			
 			m.getU().listarClientes();
 			v.getPanel_rc().getNomT().setText("");
@@ -106,7 +109,55 @@ public class Controller implements ActionListener {
 			
 			v.getPanel_1().setVisible(true);
 			v.getPanel_rg().setVisible(false);
+		}else if(e.getActionCommand().equals("Registrar Pareja")) {
+			
+			v.getPanel_c().setVisible(false);
+			v.getPanel_rp().setVisible(true);
+			
+			v.mostrarMensaje("ingrese la cedula del usuario");
+			
+			
+		}else if(e.getActionCommand().equals("Registrar pareja")) {
+			
+			String aux= v.getPanel_rp().getPorcentaje_creditoT().getText();
+			double a = Double.parseDouble(aux);
+			m.getU().agregarPareja(m.getU().buscarUsuario(v.getPanel_rp().getCed_uT().getText()), v.getPanel_rp().getNomT().getText(),a,v.getPanel_rp().getHorarioT().getText(), v.getPanel_rp().getCedT().getText());
+			m.getU().listarClientes();
+		}else if(e.getActionCommand().equals("comprobar")) {
+			
+			
+			
+			if(preguntarCedula(v.entrarDatoString()).equals("")) {
+				
+				v.mostrarMensaje("la cedula no se encontro");
+				
+				
+			}else {
+				
+				v.getPanel_rp().getNomT().setEnabled(true);
+				v.getPanel_rp().getCedT().setEnabled(true);
+				v.getPanel_rp().getHorarioT().setEnabled(true);
+				v.getPanel_rp().getPorcentaje_creditoT().setEnabled(true);
+				v.getPanel_rp().getCed_uT().setEnabled(false);
+				
+				
+			}
 		}
+		
+	}
+	
+	public String preguntarCedula(String cedula) {
+		String a ="";
+		for(int i=0;i<m.getU().getClientes().size();i++) {
+			if(m.getU().getClientes().get(i).getCedula().equals(cedula)) {
+			
+				a=cedula;
+			}else {
+				
+			}
+		
+		}
+		return a;
 		
 	}
 

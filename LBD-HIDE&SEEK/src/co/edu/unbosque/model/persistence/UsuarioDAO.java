@@ -17,9 +17,9 @@ public class UsuarioDAO {
 
 	}
 
-	// hola
+	
 
-	public String agregarcliente(String nombre,String usuario,String cedula, String correo,	String contraseña,String sexo, int parejas) {
+	public String agregarcliente(String nombre,String credito,String usuario,String cedula, String correo,	String contraseña,String sexo, int parejas) {
 		String a = "";
 		boolean b = true;
 		for (int i = 0; i < clientes.size(); i++) {
@@ -33,7 +33,7 @@ public class UsuarioDAO {
 
 		if (b == true) {
 
-			ClienteDTO cliente = new ClienteDTO(nombre,usuario,cedula, correo, contraseña,sexo, parejas);			
+			ClienteDTO cliente = new ClienteDTO(nombre,credito,usuario,cedula, correo, contraseña,sexo, parejas);			
 			clientes.add(cliente);
 			
 			
@@ -68,6 +68,22 @@ public class UsuarioDAO {
 			a= "La pareja ya está registrada";
 		}
 		return a;
+	}
+	public ClienteDTO buscarUsuario(String cedula) {
+		
+		
+		
+		for(int i=0;i<clientes.size();i++) {
+			if(clientes.get(i).getCedula().equals(cedula)) {
+				return clientes.get(i);
+					
+			}
+		}
+		
+		
+		
+		return null;
+		
 	}
 
 	public String agregarSupermercado(String usuario, String almacen, String correo, String contraseña, int sucursales) {
@@ -132,12 +148,14 @@ public class UsuarioDAO {
 		base.leerUsuario();
 		for (int i = 0; i < base.getDatos().size(); i++) {
 			a +=    base.getDatos().get(i).getNombre()+"\n"
+					+base.getDatos().get(i).getCredito() + "\n"
 					+base.getDatos().get(i).getUsuario() + "\n"
 					+base.getDatos().get(i).getCedula() + "\n"
 					+ base.getDatos().get(i).getContraseña() + "\n"
 					+ base.getDatos().get(i).getCorreo() + "\n"
 					+base.getDatos().get(i).getSexo() + "\n"
-					+ base.getDatos().get(i).getParejas() + "\n";
+					+ base.getDatos().get(i).getParejas() + "\n"
+					+base.getDatos().get(i).getLista()+"\n";
 
 		}
 			System.out.println(a);

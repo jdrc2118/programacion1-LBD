@@ -29,7 +29,7 @@ public class panel_RegCli extends JPanel{
 	
 	public panel_RegCli() {
 
-		setVisible(true);
+		setVisible(false);
 		setLayout(null);
 		inicializarComponentes();
 		
@@ -98,7 +98,6 @@ public class panel_RegCli extends JPanel{
 		add(credito);
 		
 		creditoT = new JTextField();
-		creditoT.setFocusable(false);
 		creditoT.setBounds(175, 390, 240, 20);
 		add(creditoT);
 		
@@ -204,4 +203,17 @@ public class panel_RegCli extends JPanel{
 	public void setReg(JButton reg) {
 		this.reg = reg;
 	}
+	public JLabel getCredito() {
+		return credito;
+	}
+	public void setCredito(JLabel credito) {
+		this.credito = credito;
+	}
+	public JTextField getCreditoT() {
+		return creditoT;
+	}
+	public void setCreditoT(JTextField creditoT) {
+		this.creditoT = creditoT;
+	}
+	
 }

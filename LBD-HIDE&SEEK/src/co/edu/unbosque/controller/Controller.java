@@ -30,43 +30,7 @@ public class Controller implements ActionListener {
 		v.getPanel_rc().getReg().addActionListener(this);
 
 }
-//	public void actionPerformed(ActionEvent e) {
-//
-//		if(e.getSource().equals(vnt.cli)) {
-//			vntCl.setVisible(true);
-//			vnt.setVisible(false);	
-//		}
-//		if(e.getSource().equals(vnt.tie)) {
-//			vntTie.setVisible(true);
-//			vnt.setVisible(false);
-//		}
-//		if(e.getSource().equals(vntCl.volver)) {
-//			vntCl.setVisible(false);
-//			vnt.setVisible(true);
-//		}
-//		if(e.getSource().equals(vntTie.volver)) {
-//			vntTie.setVisible(false);
-//			vnt.setVisible(true);
-//		}
-//		if(e.getSource().equals(vntCl.reg)) {
-//			vntCl.setVisible(false);
-//			vntRegCli.setVisible(true);
-//		}
-//		if(e.getSource().equals(vntCl.info)) {
-////			String cedcl = JOptionPane.showInputDialog(null, "Ingresa tú cédula: ");
-////			String pass = JOptionPane.showInputDialog(null, "Ingresa tú contraseña: ");
-//		}
-//		if(e.getSource().equals(vntCl.admin)) {
-//			vntCl.setVisible(false);
-//			//vntAdmCli.setVisible(true);
-//		}
-//		if(e.getSource().equals(vntTie.reg)) {
-//			vntTie.setVisible(false);
-//			pnlRegSup.setVisible(true);
-//		}
-//
-//
-//	}
+
 
 
 	@Override
@@ -100,9 +64,25 @@ public class Controller implements ActionListener {
 			//genero-nombre-cedula
 			String aux=v.getPanel_rc().getPareT().getText();			
 			int a = Integer.parseInt(aux);
-			System.out.println(m.getU().agregarcliente(v.getPanel_rc().getUserT().getText(), v.getPanel_rc().getEmailT().getText(), v.getPanel_rc().getClaveT().getText(),a ));
+			String sexo="";
+			if(v.getPanel_rc().getSex().getSelectedItem().equals("Masculino")) {
+				 sexo= "Masculino";
+				
+			}else {
+				sexo="Femenino";
+			}
+			System.out.println(m.getU().agregarcliente(v.getPanel_rc().getNomT().getText(),v.getPanel_rc().getUserT().getText(),v.getPanel_rc().getCedT().getText(), v.getPanel_rc().getEmailT().getText(), v.getPanel_rc().getClaveT().getText(),sexo,a ));
 			
 			m.getU().listarClientes();
+			v.getPanel_rc().getNomT().setText("");
+			v.getPanel_rc().getUserT().setText("");
+			v.getPanel_rc().getCedT().setText("");
+			v.getPanel_rc().getEmailT().setText("");
+			v.getPanel_rc().getClaveT().setText("");
+			v.getPanel_rc().getSex().setSelectedItem("Seleccionar...");
+			v.getPanel_rc().getPareT().setText("");
+			
+			
 			v.getPanel_1().setVisible(true);
 			v.getPanel_rc().setVisible(false);
 			
@@ -117,6 +97,13 @@ public class Controller implements ActionListener {
 			int a = Integer.parseInt(aux);
 			m.getU().agregarSupermercado(v.getPanel_rg().getSupeT().getText(), v.getPanel_rg().getNomT().getText(),v.getPanel_rg().getEmailT().getText() , v.getPanel_rg().getClaveT().getText(), a);
 			m.getU().listarSupermercado();
+			
+			v.getPanel_rg().getSupeT().setText("");
+			v.getPanel_rg().getNomT().setText("");
+			v.getPanel_rg().getEmailT().setText("");
+			v.getPanel_rg().getClaveT().setText("");
+			v.getPanel_rg().getPareT().setText("");
+			
 			v.getPanel_1().setVisible(true);
 			v.getPanel_rg().setVisible(false);
 		}

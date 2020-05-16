@@ -19,7 +19,7 @@ public class UsuarioDAO {
 
 	// hola
 
-	public String agregarcliente(String usuario, String correo,	String contraseña, int parejas) {
+	public String agregarcliente(String nombre,String usuario,String cedula, String correo,	String contraseña,String sexo, int parejas) {
 		String a = "";
 		boolean b = true;
 		for (int i = 0; i < clientes.size(); i++) {
@@ -33,7 +33,7 @@ public class UsuarioDAO {
 
 		if (b == true) {
 
-			ClienteDTO cliente = new ClienteDTO(usuario, correo, contraseña, parejas);
+			ClienteDTO cliente = new ClienteDTO(nombre,usuario,cedula, correo, contraseña,sexo, parejas);
 
 			clientes.add(cliente);
 			a = "se creo el cliente exitosamente";
@@ -130,9 +130,12 @@ public class UsuarioDAO {
 		String a = "";
 		base.leerUsuario();
 		for (int i = 0; i < base.getDatos().size(); i++) {
-			a += base.getDatos().get(i).getUsuario() + "\n"
+			a +=    base.getDatos().get(i).getNombre()+"\n"
+					+base.getDatos().get(i).getUsuario() + "\n"
+					+base.getDatos().get(i).getCedula() + "\n"
 					+ base.getDatos().get(i).getContraseña() + "\n"
 					+ base.getDatos().get(i).getCorreo() + "\n"
+					+base.getDatos().get(i).getSexo() + "\n"
 					+ base.getDatos().get(i).getParejas() + "\n";
 
 		}

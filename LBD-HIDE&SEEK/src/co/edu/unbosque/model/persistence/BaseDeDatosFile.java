@@ -15,13 +15,9 @@ public class BaseDeDatosFile {
 	private ArrayList<SupermercadoDTO> datos1;
 	private  ObjectInputStream in;
 	
-	
-	
 	public void escribirUsuario(ArrayList<ClienteDTO> lista) {
 		String mensaje="";
 		ArrayList<ClienteDTO> staff = lista;
-		
-
 		try {
 			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(rutaReg));
 			out.writeObject(staff);
@@ -31,19 +27,15 @@ public class BaseDeDatosFile {
 			e.printStackTrace();
 			mensaje = "Error de IO";
 		}	
-		
 	}
 	
-	public ArrayList<ClienteDTO> leerUsuario() {
-       
+	public ArrayList<ClienteDTO> leerUsuario() {       
 		try {
 			in = new ObjectInputStream(new FileInputStream(rutaReg));
 	        datos = (ArrayList<ClienteDTO>)in.readObject();
-	        in.close();
-	        
+	        in.close();	        
 
 		} catch (IOException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return datos;

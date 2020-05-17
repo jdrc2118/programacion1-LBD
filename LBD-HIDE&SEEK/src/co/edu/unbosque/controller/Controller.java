@@ -2,6 +2,7 @@ package co.edu.unbosque.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 
@@ -38,57 +39,70 @@ public class Controller implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		if (e.getActionCommand().equals("Tienda")) {
-			
+		if (e.getActionCommand().equals("Tienda")) {			
 			v.getPanel_1().setVisible(false);
 			v.getPanel_t().setVisible(true);
 			
-			
-			
-			
-		}else if(e.getActionCommand().equals("Cliente")) {
-			
+		}else if(e.getActionCommand().equals("Cliente")) {			
 			v.getPanel_1().setVisible(false);
-			v.getPanel_c().setVisible(true);			
-			
+			v.getPanel_c().setVisible(true);				
 			
 		}else if(e.getActionCommand().equals("Volver")) {
 			
 			v.getPanel_1().setVisible(true);			
 			v.getPanel_c().setVisible(false);
 			v.getPanel_t().setVisible(false);
+			
 		}else if (e.getActionCommand().equals("Registrar Usuario")){
 			
 			v.getPanel_c().setVisible(false);
 			v.getPanel_rc().setVisible(true);
-		}else if (e.getActionCommand().equals("Registrar")) {
-		
 			
-			String aux=v.getPanel_rc().getPareT().getText();			
-			int a = Integer.parseInt(aux);
-			String sexo="";
-			if(v.getPanel_rc().getSex().getSelectedItem().equals("Masculino")) {
-				 sexo= "Masculino";
-				
-			}else {
-				sexo="Femenino";
-			}
-			System.out.println(m.getU().agregarcliente(v.getPanel_rc().getNomT().getText(),v.getPanel_rc().getCreditoT().getText(),v.getPanel_rc().getUserT().getText(),v.getPanel_rc().getCedT().getText(), v.getPanel_rc().getEmailT().getText(), v.getPanel_rc().getClaveT().getText(),sexo,a ));
-			
-			m.getU().listarClientes();
-			v.getPanel_rc().getNomT().setText("");
-			v.getPanel_rc().getUserT().setText("");
-			v.getPanel_rc().getCedT().setText("");
-			v.getPanel_rc().getEmailT().setText("");
-			v.getPanel_rc().getClaveT().setText("");
-			v.getPanel_rc().getSex().setSelectedItem("Seleccionar...");
-			v.getPanel_rc().getPareT().setText("");
-			
-			
-			v.getPanel_1().setVisible(true);
-			v.getPanel_rc().setVisible(false);
-			
+		}else if (e.getActionCommand().equals("Registrar")) {	
+			try {
+				String aux=v.getPanel_rc().getPareT().getText();			
+				int a = Integer.parseInt(aux);
+				String sexo="";
+				if(v.getPanel_rc().getSex().getSelectedIndex() == 0){
+					v.mostrarMensaje("Seleccione un género");
+				}else{
+					if(v.getPanel_rc().getSex().getSelectedItem().equals("Masculino")) {
+						 sexo= "Masculino";
+						
+					}else {
+						sexo="Femenino";
+					}
+					if(Pattern.matches("[^@]+@[^@]+\\.[a-zA-Z]{2,}", v.getPanel_rc().getEmailT().getText())){
+						if(Pattern.matches("[0-9]+", v.getPanel_rc().getCedT().getText())){
+							if(Pattern.matches("[0-9]+", v.getPanel_rc().getCreditoT().getText())){
+								v.mostrarMensaje(m.getU().agregarcliente(v.getPanel_rc().getNomT().getText(), v.getPanel_rc().getCreditoT().getText(), v.getPanel_rc().getUserT().getText(), v.getPanel_rc().getCedT().getText(), v.getPanel_rc().getEmailT().getText(), v.getPanel_rc().getClaveT().getText(), sexo, a ));
+								m.enviarEmail(v.getPanel_rc().getEmailT().getText());
+								
+								v.mostrarMensaje(m.getU().listarClientes());
+								v.getPanel_rc().getNomT().setText("");
+								v.getPanel_rc().getUserT().setText("");
+								v.getPanel_rc().getCedT().setText("");
+								v.getPanel_rc().getEmailT().setText("");
+								v.getPanel_rc().getClaveT().setText("");
+								v.getPanel_rc().getSex().setSelectedItem("Seleccionar...");
+								v.getPanel_rc().getPareT().setText("");	
+								v.getPanel_rc().getCreditoT().setText(null);
+								
+								v.getPanel_1().setVisible(true);
+								v.getPanel_rc().setVisible(false);
+							}else{
+								v.mostrarMensaje("Créditos no válido");
+							}							
+						}else{
+							v.mostrarMensaje("Cédula no válida");
+						}
+					}else{
+						v.mostrarMensaje("Email no válido");
+					}
+				}
+			} catch (NumberFormatException e2) {
+				v.mostrarMensaje("Datos erróneos: " +e2.getMessage());
+			}			
 			
 		}else if(e.getActionCommand().equals("Registrar Supervisor")) {
 			
@@ -96,51 +110,62 @@ public class Controller implements ActionListener {
 			v.getPanel_rg().setVisible(true);
 			
 		}else if(e.getActionCommand().equals("Registrar supervisor")) {
-			String aux=v.getPanel_rg().getPareT().getText();
-			int a = Integer.parseInt(aux);
-			m.getU().agregarSupermercado(v.getPanel_rg().getSupeT().getText(), v.getPanel_rg().getNomT().getText(),v.getPanel_rg().getEmailT().getText() , v.getPanel_rg().getClaveT().getText(), a);
-			m.getU().listarSupermercado();
+			try {
+				String aux=v.getPanel_rg().getPareT().getText();
+				int a = Integer.parseInt(aux);
+				if(Pattern.matches("[^@]+@[^@]+\\.[a-zA-Z]{2,}", v.getPanel_rg().getEmailT().getText())){
+					if(Pattern.matches("[0-9]+", v.getPanel_rg().getPareT().getText())){
+						m.getU().agregarSupermercado(v.getPanel_rg().getSupeT().getText(), v.getPanel_rg().getNomT().getText(),v.getPanel_rg().getEmailT().getText() , v.getPanel_rg().getClaveT().getText(), a);
+						m.getU().listarSupermercado();
+						
+						v.getPanel_rg().getSupeT().setText("");
+						v.getPanel_rg().getNomT().setText("");
+						v.getPanel_rg().getEmailT().setText("");
+						v.getPanel_rg().getClaveT().setText("");
+						v.getPanel_rg().getPareT().setText("");
+						
+						v.getPanel_1().setVisible(true);
+						v.getPanel_rg().setVisible(false);
+					}else{
+						v.mostrarMensaje("Ingrese un número de tiendas válido");
+					}
+				}else{
+					v.mostrarMensaje("Correo no válido");
+				}
+			} catch (NumberFormatException e2) {
+				v.mostrarMensaje("Dátos erróneos: " +e2.getMessage());
+			}
 			
-			v.getPanel_rg().getSupeT().setText("");
-			v.getPanel_rg().getNomT().setText("");
-			v.getPanel_rg().getEmailT().setText("");
-			v.getPanel_rg().getClaveT().setText("");
-			v.getPanel_rg().getPareT().setText("");
-			
-			v.getPanel_1().setVisible(true);
-			v.getPanel_rg().setVisible(false);
-		}else if(e.getActionCommand().equals("Registrar Pareja")) {
-			
+		}else if(e.getActionCommand().equals("Registrar Pareja")) {			
 			v.getPanel_c().setVisible(false);
 			v.getPanel_rp().setVisible(true);
 			
-			v.mostrarMensaje("ingrese la cedula del usuario");
+			v.mostrarMensaje("ingrese la cedula del usuario");			
 			
+		}else if(e.getActionCommand().equals("Registrar pareja")) {			
+			try {
+				String aux= v.getPanel_rp().getPorcentaje_creditoT().getText();
+				double a = Double.parseDouble(aux);
+				String horario= (String)(v.getPanel_rp().getHora().getSelectedItem() +"-" +v.getPanel_rp().getHora2().getSelectedItem() +"-" +v.getPanel_rp().getDiasSemana().getSelectedItem());
+				m.getU().agregarPareja(m.getU().buscarUsuario(v.getPanel_rp().getCed_uT().getText()), v.getPanel_rp().getNomT().getText(),v.getPanel_rp().getCedT().getText(), a, v.getPanel_rp().getClave().getText(), horario);
+				m.getU().listarClientes();
+			} catch (NumberFormatException e2) {
+				v.mostrarMensaje("Dátos erróneos: " +e2.getMessage());
+			}
 			
-		}else if(e.getActionCommand().equals("Registrar pareja")) {
-			
-			String aux= v.getPanel_rp().getPorcentaje_creditoT().getText();
-			double a = Double.parseDouble(aux);
-			m.getU().agregarPareja(m.getU().buscarUsuario(v.getPanel_rp().getCed_uT().getText()), v.getPanel_rp().getNomT().getText(),a,v.getPanel_rp().getHorarioT().getText(), v.getPanel_rp().getCedT().getText());
-			m.getU().listarClientes();
-		}else if(e.getActionCommand().equals("comprobar")) {
-			
-			
-			
-			if(preguntarCedula(v.entrarDatoString()).equals("")) {
+		}else if(e.getActionCommand().equals("comprobar")) {	
+			if(preguntarCedula(v.entrarDatoString()).equals("")) {				
+				v.mostrarMensaje("la cedula no se encontro");				
 				
-				v.mostrarMensaje("la cedula no se encontro");
-				
-				
-			}else {
-				
+			}else {				
 				v.getPanel_rp().getNomT().setEnabled(true);
 				v.getPanel_rp().getCedT().setEnabled(true);
-				v.getPanel_rp().getHorarioT().setEnabled(true);
 				v.getPanel_rp().getPorcentaje_creditoT().setEnabled(true);
-				v.getPanel_rp().getCed_uT().setEnabled(false);
-				
-				
+				v.getPanel_rp().getClave().setEnabled(true);
+				v.getPanel_rp().getHora().setEnabled(true);
+				v.getPanel_rp().getHora2().setEnabled(true);
+				v.getPanel_rp().getDiasSemana().setEnabled(true);
+				v.getPanel_rp().getCed_uT().setEnabled(false);				
 			}
 		}
 		
@@ -149,20 +174,13 @@ public class Controller implements ActionListener {
 	public String preguntarCedula(String cedula) {
 		String a ="";
 		for(int i=0;i<m.getU().getClientes().size();i++) {
-			if(m.getU().getClientes().get(i).getCedula().equals(cedula)) {
-			
+			if(m.getU().getClientes().get(i).getCedula().equals(cedula)) {			
 				a=cedula;
 			}else {
 				
-			}
-		
+			}		
 		}
-		return a;
-		
+		return a;		
 	}
-
-
-
-
-
+	
 }

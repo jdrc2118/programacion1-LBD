@@ -23,26 +23,19 @@ public class UsuarioDAO {
 		String a = "";
 		boolean b = true;
 		for (int i = 0; i < clientes.size(); i++) {
-
 			if (clientes.get(i).getUsuario().equals(usuario)) {
 				b = false;
 				a = "el cliente ya existe";
-
 			}
 		}
-
 		if (b == true) {
-
-			ClienteDTO cliente = new ClienteDTO(nombre,credito,usuario,cedula, correo, contraseña,sexo, parejas);			
-			clientes.add(cliente);
-			
+			ClienteDTO cliente = new ClienteDTO(nombre, credito, usuario, cedula, correo, contraseña, sexo, parejas);			
+			clientes.add(cliente);			
 			
 			a = "se creo el cliente exitosamente";
 			base.escribirUsuario(clientes);
 		}
-
 		return a;
-
 	}
 
 	public boolean busquedaPareja(String cedula) {
@@ -57,10 +50,10 @@ public class UsuarioDAO {
 		return false;
 	}
 
-	public String agregarPareja(ClienteDTO cliente, String nombre, double credito, String horario, String cedula) {
+	public String agregarPareja(ClienteDTO cliente, String nombre, String cedula, double credito, String clave, String horario) {
 		String a= "";
 		if(!busquedaPareja(cedula)){
-			ParejasDTO nuevo= new ParejasDTO(nombre, credito, horario, cedula);
+			ParejasDTO nuevo= new ParejasDTO(nombre, cedula, credito, clave, horario);
 			cliente.getLista().add(nuevo);
 			a= "Pareja registrada con éxito";
 			base.escribirUsuario(clientes);
@@ -69,21 +62,15 @@ public class UsuarioDAO {
 		}
 		return a;
 	}
+	
 	public ClienteDTO buscarUsuario(String cedula) {
-		
-		
-		
 		for(int i=0;i<clientes.size();i++) {
 			if(clientes.get(i).getCedula().equals(cedula)) {
 				return clientes.get(i);
 					
 			}
 		}
-		
-		
-		
-		return null;
-		
+		return null;		
 	}
 
 	public String agregarSupermercado(String usuario, String almacen, String correo, String contraseña, int sucursales) {

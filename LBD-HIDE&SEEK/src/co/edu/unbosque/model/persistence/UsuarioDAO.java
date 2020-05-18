@@ -14,6 +14,8 @@ public class UsuarioDAO {
 		supermercados = new ArrayList<>();
 		clientes = new ArrayList<>();
 		base = new BaseDeDatosFile();
+		clientes= base.leerUsuario();
+		supermercados= base.leerSupermercado();
 
 	}
 

@@ -3,8 +3,12 @@ package co.edu.unbosque.model.persistence;
 import java.util.ArrayList;
 import java.util.List;
 
+import co.edu.unbosque.model.CreditoExc;
+import co.edu.unbosque.view.panel_Cliente;
+
 public class UsuarioDAO {
 
+	public panel_Cliente pc;
 	private ArrayList<SupermercadoDTO> supermercados;
 	private ArrayList<ClienteDTO> clientes;
 	private BaseDeDatosFile base;
@@ -19,7 +23,7 @@ public class UsuarioDAO {
 
 	}
 
-	
+
 
 	public String agregarcliente(String nombre,String credito,String usuario,String cedula, String correo,	String contraseña,String sexo, int parejas) {
 		String a = "";
@@ -33,7 +37,7 @@ public class UsuarioDAO {
 		if (b == true) {
 			ClienteDTO cliente = new ClienteDTO(nombre, credito, usuario, cedula, correo, contraseña, sexo, parejas);			
 			clientes.add(cliente);			
-			
+
 			a = "se creo el cliente exitosamente";
 			base.escribirUsuario(clientes);
 		}
@@ -64,12 +68,12 @@ public class UsuarioDAO {
 		}
 		return a;
 	}
-	
+
 	public ClienteDTO buscarUsuario(String cedula) {
 		for(int i=0;i<clientes.size();i++) {
 			if(clientes.get(i).getCedula().equals(cedula)) {
 				return clientes.get(i);
-					
+
 			}
 		}
 		return null;		
@@ -147,7 +151,7 @@ public class UsuarioDAO {
 					+base.getDatos().get(i).getLista()+"\n";
 
 		}
-			System.out.println(a);
+		System.out.println(a);
 		return a;
 
 	}
@@ -166,30 +170,40 @@ public class UsuarioDAO {
 		System.out.println(a);
 		return a;
 
-	}
 
-	public ArrayList<SupermercadoDTO> getSupermercados() {
-		return supermercados;
 	}
+//	public void RevCred(long Credito) throws CreditoExc{
+//		base.leerUsuario();
+//		for(int i = 0; i < base.getDatos().size(); i++) {
+//			base.getDatos().get(i).getCredito();
+//				if(Credito <= 0) {
+//					throw new CreditoExc();
+//				}
+//		}
+//	}
 
-	public void setSupermercados(ArrayList<SupermercadoDTO> supermercados) {
-		this.supermercados = supermercados;
+		public ArrayList<SupermercadoDTO> getSupermercados() {
+			return supermercados;
+		}
+
+		public void setSupermercados(ArrayList<SupermercadoDTO> supermercados) {
+			this.supermercados = supermercados;
+		}
+
+		public ArrayList<ClienteDTO> getClientes() {
+			return clientes;
+		}
+
+		public void setClientes(ArrayList<ClienteDTO> clientes) {
+			this.clientes = clientes;
+		}
+
+		public BaseDeDatosFile getBase() {
+			return base;
+		}
+
+		public void setBase(BaseDeDatosFile base) {
+			this.base = base;
+		}
+
 	}
-
-	public ArrayList<ClienteDTO> getClientes() {
-		return clientes;
-	}
-
-	public void setClientes(ArrayList<ClienteDTO> clientes) {
-		this.clientes = clientes;
-	}
-
-	public BaseDeDatosFile getBase() {
-		return base;
-	}
-
-	public void setBase(BaseDeDatosFile base) {
-		this.base = base;
-	}
-
-}

@@ -33,11 +33,9 @@ public class Controller implements ActionListener {
 		v.getPanel_c().getRegP().addActionListener(this);
 		v.getPanel_rp().getComprobar().addActionListener(this);
 		v.getPanel_rp().getReg().addActionListener(this);
+	
 }
 
-
-
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("Tienda")) {			
 			v.getPanel_1().setVisible(false);
@@ -140,7 +138,7 @@ public class Controller implements ActionListener {
 			v.getPanel_c().setVisible(false);
 			v.getPanel_rp().setVisible(true);
 			
-			v.mostrarMensaje("ingrese la cedula del usuario");			
+			v.mostrarMensaje("Ingrese la cedula del usuario");			
 			
 		}else if(e.getActionCommand().equals("Registrar pareja")) {			
 			try {
@@ -153,9 +151,9 @@ public class Controller implements ActionListener {
 				v.mostrarMensaje("Dátos erróneos: " +e2.getMessage());
 			}
 			
-		}else if(e.getActionCommand().equals("comprobar")) {	
+		}else if(e.getActionCommand().equals("Comprobar")) {	
 			if(preguntarCedula(v.entrarDatoString()).equals("")) {				
-				v.mostrarMensaje("la cedula no se encontro");				
+				v.mostrarMensaje("La cédula no se encontró");				
 				
 			}else {				
 				v.getPanel_rp().getNomT().setEnabled(true);

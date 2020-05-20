@@ -42,7 +42,7 @@ public class panel_Principal extends JPanel{
 	}
 	
 	public void ImagenR() {
-		imagen = new ImageIcon("src/Imagenes/LogoPru.jpg");
+		imagen = new ImageIcon("src/Imagenes/LogoLBD.png");
 		ico = new ImageIcon(imagen.getImage().getScaledInstance(img.getWidth(), img.getHeight(), Image.SCALE_DEFAULT));
 		img.setIcon(ico);
 		this.repaint();

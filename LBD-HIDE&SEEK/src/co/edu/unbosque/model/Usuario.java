@@ -3,7 +3,7 @@ package co.edu.unbosque.model;
 import co.edu.unbosque.model.persistence.UsuarioDAO;
 
 public class Usuario {
-
+	
 	private UsuarioDAO u;
 
 	public Usuario() {
@@ -36,7 +36,7 @@ public class Usuario {
 //			e.printStackTrace();
 //		}
 	}
-	
+
 	public UsuarioDAO getU() {
 		return u;
 	}

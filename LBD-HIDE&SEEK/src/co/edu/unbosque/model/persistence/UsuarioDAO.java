@@ -18,11 +18,10 @@ public class UsuarioDAO {
 		supermercados = new ArrayList<>();
 		clientes = new ArrayList<>();
 		base = new BaseDeDatosFile();
-		clientes = base.leerUsuario();
-		supermercados= base.leerSupermercado();
+//		clientes = base.leerUsuario();
+//		supermercados= base.leerSupermercado();
 
 	}
-
 
 
 	public String agregarcliente(String nombre,String credito,String usuario,String cedula, String correo,	String contraseña,String sexo, int parejas) {

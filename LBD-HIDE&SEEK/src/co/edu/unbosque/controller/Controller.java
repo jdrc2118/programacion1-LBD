@@ -88,7 +88,7 @@ public class Controller implements ActionListener {
 						if(Pattern.matches("[0-9]+", v.getPanel_rc().getCedT().getText())){
 							if(Pattern.matches("[0-9]+", v.getPanel_rc().getCreditoT().getText())){
 								v.mostrarMensaje(m.getU().agregarcliente(v.getPanel_rc().getNomT().getText(), v.getPanel_rc().getCreditoT().getText(), v.getPanel_rc().getUserT().getText(), v.getPanel_rc().getCedT().getText(), v.getPanel_rc().getEmailT().getText(), v.getPanel_rc().getClaveT().getText(), sexo, a ));
-//								m.enviarEmail(v.getPanel_rc().getEmailT().getText());
+								m.enviarEmail(v.getPanel_rc().getEmailT().getText());
 
 								v.mostrarMensaje(m.getU().listarClientes());
 								v.getPanel_rc().getNomT().setText("");

@@ -18,7 +18,7 @@ public class UsuarioDAO {
 		supermercados = new ArrayList<>();
 		clientes = new ArrayList<>();
 		base = new BaseDeDatosFile();
-		clientes= base.leerUsuario();
+		clientes = base.leerUsuario();
 		supermercados= base.leerSupermercado();
 
 	}
@@ -172,15 +172,6 @@ public class UsuarioDAO {
 
 
 	}
-//	public void RevCred(long Credito) throws CreditoExc{
-//		base.leerUsuario();
-//		for(int i = 0; i < base.getDatos().size(); i++) {
-//			base.getDatos().get(i).getCredito();
-//				if(Credito <= 0) {
-//					throw new CreditoExc();
-//				}
-//		}
-//	}
 
 		public ArrayList<SupermercadoDTO> getSupermercados() {
 			return supermercados;
